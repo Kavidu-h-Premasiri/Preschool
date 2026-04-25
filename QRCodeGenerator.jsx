@@ -35,66 +35,6 @@ const QRCodeGenerator = () => {
         // Standardize data fields to match what the component expects
         const rawStudents = response.data.students || [];
         const studentsData = rawStudents.map(student => ({
-  // Fetch students from backend
-  const fetchStudents = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get('http://localhost:3002/students');
-      console.log("Full API Response:", response.data);
-      
-      if (response.data.success) {
-        // Standardize data fields to match what the component expects
-        const rawStudents = response.data.students || [];
-        const studentsData = rawStudents.map(student => ({
-  // Fetch students from backend
-  const fetchStudents = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get('http://localhost:3002/students');
-      console.log("Full API Response:", response.data);
-      
-      if (response.data.success) {
-        // Standardize data fields to match what the component expects
-        const rawStudents = response.data.students || [];
-        const studentsData = rawStudents.map(student => ({
-  // Fetch students from backend
-  const fetchStudents = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get('http://localhost:3002/students');
-      console.log("Full API Response:", response.data);
-      
-      if (response.data.success) {
-        // Standardize data fields to match what the component expects
-        const rawStudents = response.data.students || [];
-        const studentsData = rawStudents.map(student => ({
-  // Fetch students from backend
-  const fetchStudents = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get('http://localhost:3002/students');
-      console.log("Full API Response:", response.data);
-      
-      if (response.data.success) {
-        // Standardize data fields to match what the component expects
-        const rawStudents = response.data.students || [];
-        const studentsData = rawStudents.map(student => ({
-  // Fetch students from backend
-  const fetchStudents = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get('http://localhost:3002/students');
-      console.log("Full API Response:", response.data);
-      
-      if (response.data.success) {
-        // Standardize data fields to match what the component expects
-        const rawStudents = response.data.students || [];
-        const studentsData = rawStudents.map(student => ({
           ...student,
           childId: student.childId || student._id || student.id,
           childName: student.childName || student.fullName || student.name || "Unknown",
