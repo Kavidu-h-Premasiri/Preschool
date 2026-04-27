@@ -1,0 +1,2648 @@
+/* QRScanner.css */
+
+.qr-scanner-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.qr-scanner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Decorative Elements */
+.nature-bg-qr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.leaf-qr {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.1;
+  animation: float 20s infinite ease-in-out;
+}
+
+.leaf-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.leaf-2 { bottom: 15%; right: 8%; animation-delay: 2s; animation-duration: 18s; }
+.leaf-3 { top: 30%; right: 15%; animation-delay: 4s; animation-duration: 22s; }
+
+.floating-circle-qr {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  pointer-events: none;
+  animation: float 15s infinite ease-in-out;
+  z-index: 0;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  animation-duration: 20s;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  bottom: 10%;
+  left: -50px;
+  animation-duration: 18s;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.qr-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Section */
+.header-section-qr {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-icon-qr {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.header-emoji {
+  font-size: 4rem;
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.header-section-qr h1 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-subtitle-qr {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Messages */
+.error-message-qr {
+  background-color: #fee;
+  border-left: 4px solid #f44336;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c62828;
+  background: rgba(255, 235, 235, 0.95);
+}
+
+.success-message-qr {
+  background-color: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2e7d32;
+  background: rgba(232, 245, 233, 0.95);
+}
+
+.error-icon, .success-icon {
+  font-size: 1.2rem;
+}
+
+/* Scanner Section */
+.scanner-section {
+  margin-bottom: 2rem;
+}
+
+.scanner-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.scanner-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.scanner-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.scanner-header p {
+  color: #666;
+}
+
+.scanner-box {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.qr-reader {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.scanner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.scanner-overlay:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.start-scanner-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.start-scanner-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.scanner-icon {
+  font-size: 1.3rem;
+}
+
+.stop-scanner-btn {
+  display: block;
+  margin: 1rem auto 0;
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.stop-scanner-btn:hover {
+  background: #d32f2f;
+}
+
+.scanner-instructions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.instruction-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.instruction-icon {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Data Section */
+.data-section {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.data-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.data-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: white;
+}
+
+.search-input-qr {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  width: 200px;
+}
+
+.search-input-qr:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.export-btn, .clear-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.export-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.export-btn:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.clear-btn {
+  background: #f44336;
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #da190b;
+  transform: translateY(-2px);
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f5f7fa, #fff);
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #e0e8e0;
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 2rem;
+}
+
+.stat-info h3 {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.stat-info p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.scans-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scans-table th {
+  background: #f5f7fa;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0e8e0;
+}
+
+.scans-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e8e0;
+  color: #555;
+}
+
+.scans-table tr:hover {
+  background: #f9f9f9;
+}
+
+.child-id {
+  font-family: monospace;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.child-name {
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.delete-scan-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s;
+  opacity: 0.6;
+}
+
+.delete-scan-btn:hover {
+  background: #fee;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Empty State */
+.empty-state-qr {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state-qr h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.empty-state-qr p {
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .qr-scanner-container {
+    padding: 1rem;
+  }
+
+  .header-section-qr h1 {
+    font-size: 1.8rem;
+  }
+
+  .scanner-card {
+    padding: 1rem;
+  }
+
+  .data-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .data-actions {
+    flex-direction: column;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+  }
+
+  .search-input-qr {
+    width: 100%;
+  }
+
+  .action-buttons {
+    justify-content: space-between;
+  }
+
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .scanner-instructions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scans-table th,
+  .scans-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* QR Reader Custom Styling */
+#qr-reader {
+  border: none !important;
+}
+
+#qr-reader__scan_region {
+  background: #f5f5f5;
+  border-radius: 16px;
+}
+
+#qr-reader__dashboard_section_csr {
+  display: none;
+}
+
+#qr-reader video {
+  border-radius: 16px;
+}
+
+/* QRScanner.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.qr-scanner-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f0fe 0%, #d4e4f5 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.qr-scanner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.header-section-qr {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.header-icon-qr {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.header-emoji {
+  font-size: 3rem;
+  display: inline-block;
+}
+
+.header-section-qr h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.header-subtitle-qr {
+  font-size: 0.95rem;
+  color: #5a6c7e;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Messages */
+.error-message-qr,
+.success-message-qr {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.error-message-qr {
+  background-color: #fee;
+  border-left: 3px solid #f44336;
+  color: #c62828;
+}
+
+.success-message-qr {
+  background-color: #e8f5e9;
+  border-left: 3px solid #4caf50;
+  color: #2e7d32;
+}
+
+.error-icon,
+.success-icon {
+  font-size: 1rem;
+}
+
+/* Scanner Section */
+.scanner-section {
+  margin-bottom: 2rem;
+}
+
+.scanner-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.scanner-header {
+  margin-bottom: 1rem;
+}
+
+.scanner-header h2 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.scanner-header p {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}
+
+.scanner-box {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f5f5f5;
+  min-height: 300px;
+  border: 2px dashed #cbd5e0;
+}
+
+.qr-reader {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.scanner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-scanner-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s;
+}
+
+.start-scanner-btn:hover {
+  background: #2980b9;
+}
+
+.scanner-icon {
+  font-size: 1rem;
+}
+
+.stop-scanner-btn {
+  display: block;
+  margin: 1rem auto 0;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.stop-scanner-btn:hover {
+  background: #c0392b;
+}
+
+.scanner-instructions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.instruction-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4a5568;
+  font-size: 0.8rem;
+}
+
+.instruction-icon {
+  width: 22px;
+  height: 22px;
+  background: #e2e8f0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Data Section */
+.data-section {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.data-header h2 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.data-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-select {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: white;
+  color: #2d3748;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.search-input-qr {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  width: 180px;
+}
+
+.search-input-qr:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.search-input-qr::placeholder {
+  color: #a0aec0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.export-btn,
+.clear-btn {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.export-btn {
+  background: #48bb78;
+  color: white;
+}
+
+.export-btn:hover {
+  background: #38a169;
+}
+
+.clear-btn {
+  background: #f56565;
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #e53e3e;
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: #f7fafc;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.stat-card:hover {
+  border-color: #cbd5e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-info h3 {
+  font-size: 0.7rem;
+  color: #718096;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-info p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.scans-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scans-table th {
+  background: #f7fafc;
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4a5568;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.scans-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #edf2f7;
+  font-size: 0.85rem;
+  color: #2d3748;
+}
+
+.scans-table tr:hover {
+  background: #f7fafc;
+}
+
+.child-id {
+  font-family: monospace;
+  font-weight: 500;
+  color: #4299e1;
+  font-size: 0.8rem;
+}
+
+.child-name {
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.status-badge.success {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.delete-scan-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  opacity: 0.5;
+}
+
+.delete-scan-btn:hover {
+  opacity: 1;
+  background: #fed7d7;
+  transform: scale(1.05);
+}
+
+/* Empty State */
+.empty-state-qr {
+  text-align: center;
+  padding: 3rem;
+  color: #a0aec0;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state-qr h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.empty-state-qr p {
+  font-size: 0.85rem;
+  color: #a0aec0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .qr-scanner-container {
+    padding: 1rem;
+  }
+
+  .header-section-qr h1 {
+    font-size: 1.5rem;
+  }
+
+  .scanner-card {
+    padding: 1rem;
+  }
+
+  .data-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .data-actions {
+    flex-direction: column;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .filter-select,
+  .search-input-qr {
+    width: 100%;
+  }
+
+  .action-buttons {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .export-btn,
+  .clear-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .scanner-instructions {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .instruction-item {
+    width: 100%;
+  }
+
+  .scans-table th,
+  .scans-table td {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .child-id {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 0.75rem;
+  }
+
+  .stat-info p {
+    font-size: 1rem;
+  }
+
+  .scans-table th:nth-child(1),
+  .scans-table td:nth-child(1) {
+    display: none;
+  }
+}
+
+/* QR Reader Custom Styling */
+#qr-reader {
+  border: none !important;
+  width: 100% !important;
+}
+
+#qr-reader__scan_region {
+  background: #f7fafc;
+  border-radius: 12px;
+  min-height: 280px;
+}
+
+#qr-reader__dashboard_section_csr {
+  display: none;
+}
+
+#qr-reader video {
+  border-radius: 12px;
+  width: 100% !important;
+}
+
+/* Loading State */
+.loading-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner-large {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spinner for buttons */
+.spinner-small {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scanner-card,
+.data-section {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Scrollbar Styling */
+.table-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Stats Cards - Perfectly Aligned Within Frames */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stat-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  min-width: 0; /* Prevents overflow */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e0;
+}
+
+.stat-icon {
+  font-size: 1.75rem;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7fafc;
+  border-radius: 10px;
+  flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+.stat-info {
+  flex: 1;
+  min-width: 0; /* Prevents text overflow */
+  overflow: hidden;
+}
+
+.stat-info h3 {
+  font-size: 0.7rem;
+  color: #718096;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-info p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tablet Responsive - 2x2 Grid with proper containment */
+@media (max-width: 1024px) {
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 0.875rem;
+  }
+  
+  .stat-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .stat-info p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Mobile Responsive - 1 Column with full containment */
+@media (max-width: 768px) {
+  .stats-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .stat-card {
+    padding: 0.875rem;
+    width: 100%;
+  }
+  
+  .stat-icon {
+    font-size: 1.5rem;
+    width: 42px;
+    height: 42px;
+  }
+  
+  .stat-info h3 {
+    font-size: 0.7rem;
+  }
+  
+  .stat-info p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Small Mobile - Ensure no overflow */
+@media (max-width: 480px) {
+  .stats-cards {
+    gap: 0.5rem;
+  }
+  
+  .stat-card {
+    padding: 0.75rem;
+  }
+  
+  .stat-icon {
+    font-size: 1.25rem;
+    width: 38px;
+    height: 38px;
+  }
+  
+  .stat-info h3 {
+    font-size: 0.65rem;
+  }
+  
+  .stat-info p {
+    font-size: 1rem;
+  }
+}
+
+/* Empty State - Centered within frame */
+.empty-state-qr {
+  text-align: center;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-top: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+  display: inline-block;
+}
+
+.empty-state-qr h3 {
+  font-size: 1rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.empty-state-qr p {
+  font-size: 0.875rem;
+  color: #718096;
+  margin: 0;
+}
+
+/* Empty State Responsive - Stay within frame */
+@media (max-width: 768px) {
+  .empty-state-qr {
+    padding: 1.5rem;
+    min-height: 180px;
+  }
+  
+  .empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .empty-state-qr h3 {
+    font-size: 0.9rem;
+  }
+  
+  .empty-state-qr p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .empty-state-qr {
+    padding: 1rem;
+    min-height: 150px;
+  }
+  
+  .empty-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .empty-state-qr h3 {
+    font-size: 0.85rem;
+  }
+  
+  .empty-state-qr p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Animation for stats cards */
+.stat-card {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.05s; }
+.stat-card:nth-child(2) { animation-delay: 0.1s; }
+.stat-card:nth-child(3) { animation-delay: 0.15s; }
+.stat-card:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure parent containers don't cause overflow */
+.data-section,
+.scanner-card,
+.qr-content {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* For very small screens, ensure text doesn't overflow */
+@media (max-width: 360px) {
+  .stat-card {
+    padding: 0.625rem;
+  }
+  
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  
+  .stat-info h3 {
+    font-size: 0.6rem;
+  }
+  
+  .stat-info p {
+    font-size: 0.875rem;
+  }
+}
+.loading-message-qr {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-icon {
+  font-size: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.source-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.url-source {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.qr-source {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+/* Save & Clear Today's Records Button - Enhanced with Animation */
+.save-attendance-btn {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.save-attendance-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.save-attendance-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.save-attendance-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+  background: linear-gradient(135deg, #38a169, #2f855a);
+}
+
+.save-attendance-btn:active {
+  transform: translateY(0);
+}
+
+/* Daily Attendance Section - Container Animation */
+.attendance-section {
+  margin-top: 2rem;
+  animation: slideInUp 0.5s ease-out;
+}
+
+/* Attendance Date Cards Container */
+.attendance-dates-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Individual Date Card */
+.attendance-date-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  animation: fadeInCard 0.4s ease-out forwards;
+  opacity: 0;
+  transform-origin: top;
+}
+
+.attendance-date-card:nth-child(1) { animation-delay: 0.05s; }
+.attendance-date-card:nth-child(2) { animation-delay: 0.1s; }
+.attendance-date-card:nth-child(3) { animation-delay: 0.15s; }
+.attendance-date-card:nth-child(4) { animation-delay: 0.2s; }
+.attendance-date-card:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.attendance-date-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Date Header */
+.attendance-date-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #f7fafc, #ffffff);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.attendance-date-header:hover {
+  background: linear-gradient(135deg, #f0f4f9, #ffffff);
+}
+
+.date-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.date-icon {
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+  display: inline-block;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.date-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.student-count {
+  font-size: 0.8rem;
+  color: #718096;
+  background: #edf2f7;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+}
+
+.date-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Export Date Button */
+.export-date-btn {
+  background: #48bb78;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.export-date-btn:hover {
+  background: #38a169;
+  transform: scale(1.05);
+}
+
+.export-date-btn:active {
+  transform: scale(0.95);
+}
+
+/* Toggle Expand Button */
+.toggle-expand-btn {
+  background: #edf2f7;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a5568;
+}
+
+.toggle-expand-btn:hover {
+  background: #cbd5e0;
+  transform: scale(1.1);
+}
+
+.toggle-expand-btn:active {
+  transform: scale(0.95);
+}
+
+/* Attendance Table Container - With Expand/Collapse Animation */
+.attendance-table-container {
+  overflow: hidden;
+  animation: expandTable 0.4s ease-out;
+  transform-origin: top;
+}
+
+@keyframes expandTable {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    transform: scaleY(1);
+  }
+}
+
+/* Attendance Table */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.attendance-table th {
+  background: #f7fafc;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4a5568;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.attendance-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #edf2f7;
+  font-size: 0.85rem;
+  color: #2d3748;
+  transition: all 0.3s ease;
+}
+
+.attendance-table tr {
+  transition: all 0.3s ease;
+}
+
+.attendance-table tr:hover {
+  background: #f7fafc;
+  transform: translateX(2px);
+}
+
+/* Scan Count Badge */
+.scan-count-badge {
+  display: inline-block;
+  background: #edf2f7;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4a5568;
+  transition: all 0.3s ease;
+}
+
+.attendance-table tr:hover .scan-count-badge {
+  background: #cbd5e0;
+  transform: scale(1.05);
+}
+
+/* Status Badge Present */
+.status-badge.present {
+  background: #c6f6d5;
+  color: #22543d;
+  animation: pulseStatus 2s infinite;
+}
+
+@keyframes pulseStatus {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Delete Attendance Button */
+.delete-attendance-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.delete-attendance-btn:hover {
+  opacity: 1;
+  background: #fed7d7;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.delete-attendance-btn:active {
+  transform: scale(0.95);
+}
+
+/* Hint Text */
+.hint-text {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  margin-top: 0.5rem;
+  font-style: italic;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Save Success Animation */
+@keyframes saveSuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(72, 187, 120, 0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.save-success {
+  animation: saveSuccess 0.5s ease-out;
+}
+
+/* Loading State for Save Button */
+.save-attendance-btn.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.save-attendance-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  right: 12px;
+  margin-top: -8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* New Record Added Animation */
+@keyframes highlightNew {
+  0% {
+    background: rgba(72, 187, 120, 0.2);
+    transform: scale(1.02);
+  }
+  100% {
+    background: transparent;
+    transform: scale(1);
+  }
+}
+
+.attendance-table tr.new-record {
+  animation: highlightNew 1s ease-out;
+}
+
+/* Responsive Design for Attendance Section */
+@media (max-width: 768px) {
+  .attendance-date-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .date-info h3 {
+    font-size: 0.9rem;
+  }
+  
+  .student-count {
+    font-size: 0.7rem;
+  }
+  
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .attendance-table th:nth-child(4),
+  .attendance-table td:nth-child(4) {
+    display: none;
+  }
+  
+  .attendance-table th:nth-child(6),
+  .attendance-table td:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendance-date-header {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .date-info {
+    gap: 0.5rem;
+  }
+  
+  .date-icon {
+    font-size: 1rem;
+  }
+  
+  .date-info h3 {
+    font-size: 0.8rem;
+  }
+  
+  .student-count {
+    font-size: 0.6rem;
+  }
+  
+  .export-date-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.65rem;
+  }
+  
+  .toggle-expand-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+  
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .attendance-table th:nth-child(3),
+  .attendance-table td:nth-child(3) {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Hover Effect for Attendance Cards */
+@keyframes cardGlow {
+  0% {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.2);
+  }
+}
+
+.attendance-date-card:hover {
+  animation: cardGlow 0.3s ease-out forwards;
+}
+
+/* Scroll Animation for New Items */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.attendance-table tr {
+  animation: slideInRight 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.attendance-table tr:nth-child(1) { animation-delay: 0.02s; }
+.attendance-table tr:nth-child(2) { animation-delay: 0.04s; }
+.attendance-table tr:nth-child(3) { animation-delay: 0.06s; }
+.attendance-table tr:nth-child(4) { animation-delay: 0.08s; }
+.attendance-table tr:nth-child(5) { animation-delay: 0.1s; }
+.attendance-table tr:nth-child(6) { animation-delay: 0.12s; }
+
+/* Counter Animation for Student Count */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.student-count.update {
+  animation: countUp 0.3s ease-out;
+}
+
+/* Tooltip for Action Buttons */
+.export-date-btn,
+.toggle-expand-btn,
+.delete-attendance-btn {
+  position: relative;
+}
+
+.export-date-btn::after,
+.toggle-expand-btn::after,
+.delete-attendance-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2d3748;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.export-date-btn:hover::after,
+.toggle-expand-btn:hover::after,
+.delete-attendance-btn:hover::after {
+  opacity: 1;
+}
+
+/* Smooth Scroll for Attendance Section */
+.attendance-section {
+  scroll-margin-top: 20px;
+  transition: scroll-margin-top 0.3s ease;
+}
+
+/* Celebration Effect for Save Action */
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.celebration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: confetti 1s ease-out forwards;
+}
+/* Daily Attendance Section - Container Animation */
+.attendance-section {
+  margin-top: 2rem;
+  animation: slideInUp 0.5s ease-out;
+}
+
+/* Attendance Date Cards Container */
+.attendance-dates-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Individual Date Card - FIXED: Remove transform that causes disappearance */
+.attendance-date-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  animation: fadeInCard 0.4s ease-out forwards;
+  opacity: 0;
+  transform-origin: top;
+  position: relative;
+  z-index: 1;
+}
+
+.attendance-date-card:nth-child(1) { animation-delay: 0.05s; }
+.attendance-date-card:nth-child(2) { animation-delay: 0.1s; }
+.attendance-date-card:nth-child(3) { animation-delay: 0.15s; }
+.attendance-date-card:nth-child(4) { animation-delay: 0.2s; }
+.attendance-date-card:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FIXED: Remove transform that causes disappearance on hover */
+.attendance-date-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Removed transform: translateY(-2px); */
+  transform: none;
+}
+
+/* Date Header - FIXED: Ensure it stays visible */
+.attendance-date-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #f7fafc, #ffffff);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 2;
+}
+
+.attendance-date-header:hover {
+  background: linear-gradient(135deg, #f0f4f9, #ffffff);
+  /* Removed any transform that might cause issues */
+  transform: none;
+}
+
+.date-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.date-icon {
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+  display: inline-block;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.date-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.student-count {
+  font-size: 0.8rem;
+  color: #718096;
+  background: #edf2f7;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.date-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Export Date Button - FIXED: No transform issues */
+.export-date-btn {
+  background: #48bb78;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.export-date-btn:hover {
+  background: #38a169;
+  transform: scale(1.05);
+}
+
+.export-date-btn:active {
+  transform: scale(0.95);
+}
+
+/* Toggle Expand Button - FIXED */
+.toggle-expand-btn {
+  background: #edf2f7;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a5568;
+}
+
+.toggle-expand-btn:hover {
+  background: #cbd5e0;
+  transform: scale(1.1);
+}
+
+.toggle-expand-btn:active {
+  transform: scale(0.95);
+}
+
+/* Attendance Table Container - FIXED */
+.attendance-table-container {
+  overflow: hidden;
+  animation: expandTable 0.4s ease-out;
+  transform-origin: top;
+  background: white;
+}
+
+@keyframes expandTable {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    transform: scaleY(1);
+  }
+}
+
+/* Attendance Table */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.attendance-table th {
+  background: #f7fafc;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4a5568;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.attendance-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #edf2f7;
+  font-size: 0.85rem;
+  color: #2d3748;
+  transition: all 0.3s ease;
+}
+
+.attendance-table tr {
+  transition: all 0.3s ease;
+}
+
+.attendance-table tr:hover {
+  background: #f7fafc;
+  /* Removed transform that might cause layout shifts */
+  transform: none;
+}
+
+/* Scan Count Badge */
+.scan-count-badge {
+  display: inline-block;
+  background: #edf2f7;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4a5568;
+  transition: all 0.3s ease;
+}
+
+.attendance-table tr:hover .scan-count-badge {
+  background: #cbd5e0;
+  /* Removed transform that might cause issues */
+  transform: none;
+}
+
+/* Status Badge Present */
+.status-badge.present {
+  background: #c6f6d5;
+  color: #22543d;
+  animation: pulseStatus 2s infinite;
+}
+
+@keyframes pulseStatus {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Delete Attendance Button - FIXED */
+.delete-attendance-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.delete-attendance-btn:hover {
+  opacity: 1;
+  background: #fed7d7;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.delete-attendance-btn:active {
+  transform: scale(0.95);
+}
+
+/* Hint Text */
+.hint-text {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  margin-top: 0.5rem;
+  font-style: italic;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Save Success Animation */
+@keyframes saveSuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(72, 187, 120, 0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.save-success {
+  animation: saveSuccess 0.5s ease-out;
+}
+
+/* Loading State for Save Button */
+.save-attendance-btn.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.save-attendance-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  right: 12px;
+  margin-top: -8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* New Record Added Animation */
+@keyframes highlightNew {
+  0% {
+    background: rgba(72, 187, 120, 0.2);
+    transform: scale(1.02);
+  }
+  100% {
+    background: transparent;
+    transform: scale(1);
+  }
+}
+
+.attendance-table tr.new-record {
+  animation: highlightNew 1s ease-out;
+}
+
+/* Responsive Design for Attendance Section */
+@media (max-width: 768px) {
+  .attendance-date-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .date-info h3 {
+    font-size: 0.9rem;
+  }
+  
+  .student-count {
+    font-size: 0.7rem;
+  }
+  
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .attendance-table th:nth-child(4),
+  .attendance-table td:nth-child(4) {
+    display: none;
+  }
+  
+  .attendance-table th:nth-child(6),
+  .attendance-table td:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendance-date-header {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .date-info {
+    gap: 0.5rem;
+  }
+  
+  .date-icon {
+    font-size: 1rem;
+  }
+  
+  .date-info h3 {
+    font-size: 0.8rem;
+  }
+  
+  .student-count {
+    font-size: 0.6rem;
+  }
+  
+  .export-date-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.65rem;
+  }
+  
+  .toggle-expand-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+  
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .attendance-table th:nth-child(3),
+  .attendance-table td:nth-child(3) {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Hover Effect for Attendance Cards - FIXED: No transform that causes disappearance */
+@keyframes cardGlow {
+  0% {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.2);
+  }
+}
+
+.attendance-date-card:hover {
+  animation: cardGlow 0.3s ease-out forwards;
+  /* Ensure the card stays visible */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Scroll Animation for New Items */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.attendance-table tr {
+  animation: slideInRight 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.attendance-table tr:nth-child(1) { animation-delay: 0.02s; }
+.attendance-table tr:nth-child(2) { animation-delay: 0.04s; }
+.attendance-table tr:nth-child(3) { animation-delay: 0.06s; }
+.attendance-table tr:nth-child(4) { animation-delay: 0.08s; }
+.attendance-table tr:nth-child(5) { animation-delay: 0.1s; }
+.attendance-table tr:nth-child(6) { animation-delay: 0.12s; }
+
+/* Counter Animation for Student Count */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.student-count.update {
+  animation: countUp 0.3s ease-out;
+}
+
+/* Tooltip for Action Buttons - FIXED */
+.export-date-btn,
+.toggle-expand-btn,
+.delete-attendance-btn {
+  position: relative;
+}
+
+.export-date-btn::after,
+.toggle-expand-btn::after,
+.delete-attendance-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2d3748;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  margin-bottom: 5px;
+  z-index: 100;
+}
+
+.export-date-btn:hover::after,
+.toggle-expand-btn:hover::after,
+.delete-attendance-btn:hover::after {
+  opacity: 1;
+}
+
+/* Smooth Scroll for Attendance Section */
+.attendance-section {
+  scroll-margin-top: 20px;
+  transition: scroll-margin-top 0.3s ease;
+}
+
+/* Celebration Effect for Save Action */
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.celebration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: confetti 1s ease-out forwards;
+}
+
+/* Additional fix: Ensure all elements have proper stacking context */
+.attendance-date-card,
+.attendance-date-header,
+.attendance-table-container,
+.attendance-table {
+  position: relative;
+  z-index: auto;
+}
+
+/* Fix for any potential overflow issues */
+.attendance-dates-container,
+.attendance-date-card,
+.attendance-table-container {
+  overflow: visible;
+}
+
+/* Ensure background doesn't cause hiding */
+.attendance-date-card {
+  background: white;
+  backdrop-filter: none;
+}
